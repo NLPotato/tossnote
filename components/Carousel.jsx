@@ -14,27 +14,32 @@ function BootstrapCarousel() {
     setIndex(selectedIndex+1);
   };
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}  className="w-screen bg-black"> 
-      {bootstrap.map((item) => (
-          <Carousel.Item key={item.id} interval={4000}  className="flex justify-center w-0.5">
-              <Image
-                src={item.imageUrl}
-                alt="slides"
-                width={0}
-                height={0}
-                sizes={"100vw"}
-                style={{ width: '100%', height: '350px', objectFit: "contain"}}
-              />
+    <container className="w-screen bg-black">
+      <div className="flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
+        <Carousel activeIndex={index} onSelect={handleSelect} > 
+          {bootstrap.map((item) => (
+              <Carousel.Item key={item.id} interval={4000}>
+                  <Image
+                    src={item.imageUrl}
+                    alt="slides"
+                    width={0}
+                    height={0}
+                    sizes={"100vw"}
+                    style={{ width: '1024px', height: '350px', objectFit: "fill"}}
+                  />
 
-            <Carousel.Caption>
-            {/* <Carousel.Caption className={styles.caption}> */}
-              <h3>{item.title}</h3>
-              {/* <p>{item.body}</p> */}
-              <button className="btn btn-danger">Visit Docs</button>
-            </Carousel.Caption>
-          </Carousel.Item>
-      ))}
-    </Carousel>
+                <Carousel.Caption>
+                {/* <Carousel.Caption className={styles.caption}> */}
+                  <h3>{item.title}</h3>
+                  {/* <p>{item.body}</p> */}
+                  <button className="btn btn-danger">Visit Docs</button>
+                </Carousel.Caption>
+              </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+    </container>
+
   );
 }
 
