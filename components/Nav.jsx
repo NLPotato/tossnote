@@ -21,7 +21,8 @@ const Nav = () => {
 
   return (
     <nav className='flex-between w-full pt-3 mb-3'>
-      <Link href='/' className='flex gap-2 flex-center'>
+      <Link href='/' >
+      {/* <Link href='/' className='flex gap-2 flex-center'> */}
         {/* <Image
           src='/assets/images/logo.svg'
           alt='logo'
@@ -76,7 +77,7 @@ const Nav = () => {
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
         {session?.user ? (
-          <div className='flex'>
+          <div className='flex' >
             <Image
               src={session?.user.image}
               width={37}

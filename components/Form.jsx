@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) => {
-  const post = note.userContents;
+const Form = ({ type, note, setNote, showGptHints, submitting, handleSubmit }) => {
 
   return (
     <section className="w-full max-w-full flex-start flex-col">
@@ -19,7 +18,7 @@ const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) =>
           <span className="font-satoshi font-semibold text-base text-gray-700">Question</span>
           <textarea 
             value={note.question}
-            onChange={(e) => setNote({...note, prompt: e.target.value})}
+            onChange={(e) => setNote({...note, question: e.target.value})}
             placeholder="새 질문을 작성해 주세요"
             required
             className="form_input"
@@ -28,13 +27,19 @@ const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) =>
 
         <button className="black_btn">
           Brainstorm
+          {/* 💥TODO: Get GPT Hints */}
         </button>
 
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">Intro</span>
           <textarea 
-            value={post.intro}
-            onChange={(e) => setNote({...post, prompt: e.target.value})}
+            // value={note.userContents.intro}
+            onChange={
+              (e) => {
+                const {name, value} = e.target;
+                setNote(prev => ({...prev, userContents: {...prev.userContents, [name]: value}}));
+              }
+            }
             placeholder="서론 및 핵심 아이디어를 정리해 주세요"
             required
             className="form_textarea"
@@ -44,8 +49,13 @@ const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) =>
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">Idea 1</span>
           <textarea 
-            value={post.idea1}
-            onChange={(e) => setNote({...post, prompt: e.target.value})}
+            // value={note.userContents.idea1}
+            onChange={
+              (e) => {
+                const {name, value} = e.target;
+                setNote(prev => ({...prev, userContents: {...prev.userContents, [name]: value}}));
+              }
+            }
             placeholder="아이디어 1"
             required
             className="form_textarea"
@@ -55,10 +65,14 @@ const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) =>
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">Idea 2</span>
           <textarea 
-            value={post.idea1}
-            onChange={(e) => setNote({...post, prompt: e.target.value})}
+            // value={note.userContents.idea2}
+            onChange={
+              (e) => {
+                const {name, value} = e.target;
+                setNote(prev => ({...prev, userContents: {...prev.userContents, [name]: value}}));
+              }
+            }
             placeholder="아이디어 2"
-            required
             className="form_textarea"
           />
         </label>
@@ -66,8 +80,13 @@ const Form = ({ type, note, setNote, showGptHelp, submitting, handleSubmit }) =>
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">Conclusion</span>
           <textarea 
-            value={post.conclusion}
-            onChange={(e) => setNote({...post, prompt: e.target.value})}
+            // value={note.userContents.conclusion}
+            onChange={
+              (e) => {
+                const {name, value} = e.target;
+                setNote(prev => ({...prev, userContents: {...prev.userContents, [name]: value}}));
+              }
+            }
             placeholder="아이디어 요약 및 마무리 해주세요."
             className="form_textarea"
           />

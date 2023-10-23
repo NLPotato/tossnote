@@ -5,17 +5,17 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import Form from "@components/Form";
-import { Router } from "next/router";
 import generateQuestionId from "@utils/generate_id";
 
 const NewNote = () => {
+  const router = useRouter();
+  const {data:session} = useSession();
+
   const [submitting, setSubmitting] = useState(false);
-  const [gptHelp, setGptHelp] = useState("");
+  const [gptHints, setGptHints] = useState("");
   const [note, setNote] = useState({
     question: "",
-    questionId: generateQuestionId(),
-    tag: "",
-    userId: "",
+    tags: ["type5"],
     userContents: {
       intro: "",
       idea1: "",
@@ -32,16 +32,16 @@ const NewNote = () => {
       const response = await fetch("/api/note/new", {
         method: "POST",
         body: JSON.stringify({
-          gptHelp: gptHelp,
-          question: note.question,
-          questionId: note.questionId,
+          gptHints: gptHints,
+          question: note.question.charAt(0).toUpperCase() + note.question.slice(1), // Capitalize first letter only
+          questionId: generateQuestionId(),
           userContents: note.userContents,
-          tag: note.tag,
           userId: session?.user.id,
+          tags: note.tags,
         }),
       });
       if (response.ok) {
-        Router.push("/");
+        router.push("/");
       }
     } catch (error) {
       console.loig(error);
@@ -57,7 +57,7 @@ const NewNote = () => {
         type="New"
         note={note}
         setNote={setNote}
-        // showGptHelp={showGptHelp}
+        // showGptHints={showGptHints}
         submitting={submitting}
         handleSubmit={makeNote}
       />
