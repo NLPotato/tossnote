@@ -1,5 +1,6 @@
 import Feed from '@components/Feed';
 import Carousel from '@components/Carousel';
+// import MainCarousel from '@components/MainCarousel';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <span className="orange_gradient text-center">AI-Powered </span>
       </h1>
       <p className="desc text-center">loren ipsum</p>
+
       <Feed />
     </section>
   )
