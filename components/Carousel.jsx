@@ -11,7 +11,7 @@ function BootstrapCarousel() {
   const { bootstrap } = items.items;
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex+1);
+    setIndex(selectedIndex);
   };
   return (
     <container className="w-screen bg-black">
