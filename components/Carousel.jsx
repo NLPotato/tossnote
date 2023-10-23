@@ -25,7 +25,7 @@ function BootstrapCarousel() {
                     width={0}
                     height={0}
                     sizes={"100vw"}
-                    style={{ width: '1024px', height: '350px', objectFit: "fill"}}
+                    style={{ width: '1024px', height: '350px', objectFit: "fill"}} //widht: 100% objectFit: "contain"
                   />
 
                 <Carousel.Caption>
