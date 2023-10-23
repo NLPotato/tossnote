@@ -19,7 +19,6 @@ const Nav = () => {
     setUpProviders();
   }, []);
 
-
   return (
     <nav className='flex-between w-full pt-3 mb-3'>
       <Link href='/' className='flex gap-2 flex-center'>
