@@ -166,3 +166,18 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+/* OpenAIChat Comp */
+.chat-bubble {
+    @apply w-5/6 m-3 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-3xl ;
+}
+
+
+/* icons */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
