@@ -6,10 +6,11 @@ import { useChat } from "ai/react";
 const OpenAIChat = ({question}) => {
   const useChatOptions = {
     initialMessages: [
-      {"role": "system", "id": 1001, "content": `The user is a non-native English speaker. They will take the TOEIC speaking test soon and want you to help them practice as follows. 1. Give feedback to their answer to the given question so that it is relevant to the question and sounds natural and grammatical. 2. When they ask you questions, answer them.`},
-      {"role": "user", "id": 1002, "content": `question: ${question}\n1. Give feedback if 'user' answers the question OR 2. Answer their questions IF there are: `}
+      {"role": "system", "id": 1001, "content": `The user is a non-native English speaker. He will take the TOEIC speaking test soon and wants to practice speaking. He is looking for a teacher to help him practice speaking English fluently. Speak English when giving revison and Korean when giving general tips and feedback.`},
+      {"role": "user", "id": 1002, "content": `question: ${question}\n\nI'm going to give you my answer. The answer should be relevant to the question, consistent, complete and grammatical and should contain clear and logical arguments and supporting ideas and examples. Give feedback and revise in Korean, if necessary.`},
     ]
   }
+
   const { messages, input, handleInputChange, handleSubmit } = useChat(useChatOptions);
 
   return (
@@ -39,5 +40,4 @@ const OpenAIChat = ({question}) => {
 
     </container>  )
 }
-
 export default OpenAIChat
