@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## TODO
+
+- [] 입력 수 제한 (토큰 안 걸리게)
+- [] reading
+- [] 발음 평가
+
 ## Getting Started
 
 First, run the development server:
