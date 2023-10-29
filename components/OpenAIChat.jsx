@@ -14,20 +14,21 @@ const OpenAIChat = ({question}) => {
   const { messages, input, handleInputChange, handleSubmit } = useChat(useChatOptions);
 
   return (
-    <container className="w-5/6 mx-10 m-3">
-      <section className="flex flex-col p-5 m-3 w-full">
+    <>
+      <section className="flex flex-col p-5 w-full">
         {messages.map((m) => (
-        <div className={m.role==="user"? "chat-bubble justify-end self-end" : "chat-bubble justify-start justify-self-start"} key={m.id}>
+        <div className={m.role==="user"? "chat-bubble-user justify-end justify-self-end" : "chat-bubble justify-start justify-self-start"} key={m.id}>
           <p className="font-inter text-l text-black dark:text-white m-5">
             {m.content}
           </p>
         </div>
         ))}
       </section>
+      
       {/* "flex w-5/6 mt-10" */}
-      <form className="fixed flex w-3/4 max-w-md bottom-0 bg-white border border-gray-300 rounded mt-5 mb-5 shadow-xl p-2" onSubmit={handleSubmit}>
+      <form className="fixed flex bottom-0 bg-white border border-gray-300 rounded mt-5 mb-5 shadow-xl p-2" onSubmit={handleSubmit}>
         <input
-          className="p-2 w-full"
+          className="p-2 w-3/"
           value={input}
           onChange={handleInputChange}
           placeholder="Say something..."
@@ -35,9 +36,9 @@ const OpenAIChat = ({question}) => {
         <button type="submit" className="black_btn">
           Send
         </button>
-
       </form>
 
-    </container>  )
+
+    </>  )
 }
 export default OpenAIChat

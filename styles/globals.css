@@ -169,9 +169,12 @@
 
 /* OpenAIChat Comp */
 .chat-bubble {
-    @apply w-5/6 m-3 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-3xl ;
+    @apply m-3 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden;
 }
 
+.chat-bubble-user {
+    @apply m-3 bg-slate-200 dark:bg-gray-500 rounded-xl shadow-md overflow-hidden;
+}
 
 /* icons */
 .material-symbols-outlined {

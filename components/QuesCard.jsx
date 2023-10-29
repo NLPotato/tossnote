@@ -11,7 +11,8 @@ const QuesCard = ({question="Lorem ipsum dolor sit amet, consectetur adipiscing 
   }
 
   return (
-    <container className="w-5/6 mx-10 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3">
+    // md:max-w-3xl m-3
+    <div className="border border-gray-300 rounded-xl shadow-md overflow-hidden  bg-white dark:bg-gray-800">
       <section className="flex flex-col p-5 w-full">
         <div>
           <p className="font-satoshi font-semibold text-xl text-black dark:text-white">
@@ -35,7 +36,7 @@ const QuesCard = ({question="Lorem ipsum dolor sit amet, consectetur adipiscing 
           />
         </div>
       </section>
-    </container>
+    </div>
 
 
     // <div className='flex flex-col justify-center max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md md:max-w-3xl m-3'>
